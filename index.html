@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-[#F3F3EF]">
+    <!-- Header -->
+    <header
+      class="h-[93px] container mx-auto flex justify-between border-b-1 border-black/8"
+    >
+      <!-- Logo -->
+      <div class="flex items-center gap-4">
+        <img src="./images/logo.svg" alt="Logo" />
+        <p class="font-bold text-[22px]" data-i18n="brand">AURA</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex items-center">
+        <div class="rounded-full h-1 w-1 bg-[#6B6B6B] mr-4"></div>
+        <div
+          class="font-medium text-[13px] text-[#6B6B6B] flex items-center gap-2"
+        >
+          <img src="./images/shipping.svg" alt="shipping icon" />
+          <span data-i18n="shipping">Fast shipping</span>
+        </div>
+      </div>
+
+      <!-- Language Selector -->
+      <div
+        id="lang-toggle"
+        role="button"
+        tabindex="0"
+        aria-label="Switch to Arabic"
+        data-next-lang="ar"
+        class="w-[52px] h-[77px] h-full bg-[#C2A878] rounded-b-[5px] flex flex-col items-center justify-center gap-[15px] cursor-pointer"
+      >
+        <img src="./images/Language Skill.svg" alt="Language Selector" />
+        <span
+          id="lang-toggle-label"
+          class="font-medium text-[13px] font-bold text-white text-[20px]"
+          >EN</span
+        >
+      </div>
+    </header>
+  </body>
+
+  <script src="./main.js"></script>
+</html>
