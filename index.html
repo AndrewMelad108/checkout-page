@@ -12,16 +12,21 @@
       class="h-[93px] container mx-auto flex justify-between border-b-1 border-black/8"
     >
       <!-- Logo -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center md:gap-4 gap-2">
         <img src="./images/logo.svg" alt="Logo" />
-        <p class="font-bold text-[22px]" data-i18n="brand">AURA</p>
+        <p
+          class="font-bold text-[22px] uppercase tracking-[2px]"
+          data-i18n="brand"
+        >
+          AURA
+        </p>
       </div>
 
       <!-- Navigation -->
       <div class="flex items-center">
-        <div class="rounded-full h-1 w-1 bg-[#6B6B6B] mr-4"></div>
+        <div class="rounded-full h-1 w-1 bg-[#6B6B6B] md:mr-4 mr-2"></div>
         <div
-          class="font-medium text-[13px] text-[#6B6B6B] flex items-center gap-2"
+          class="font-medium text-[13px] text-[#6B6B6B] flex items-center md:gap-2 gap-1"
         >
           <img src="./images/shipping.svg" alt="shipping icon" />
           <span data-i18n="shipping">Fast shipping</span>
@@ -35,13 +40,13 @@
         tabindex="0"
         aria-label="Switch to Arabic"
         data-next-lang="ar"
-        class="w-[52px] h-[77px] h-full bg-[#C2A878] rounded-b-[5px] flex flex-col items-center justify-center gap-[15px] cursor-pointer"
+        class="md:w-[52px] w-[42px] h-[77px] h-full bg-[#C2A878] rounded-b-[5px] flex flex-col items-center justify-center gap-[15px] cursor-pointer"
       >
         <img src="./images/Language Skill.svg" alt="Language Selector" />
         <span
           id="lang-toggle-label"
-          class="font-medium font-bold text-white text-[20px]"
-          >EN</span
+          class="font-medium font-bold text-white text-[20px] tracking-none"
+          >AR</span
         >
       </div>
     </header>
@@ -51,38 +56,66 @@
       <img
         src="https://placehold.co/1312x574"
         alt="Banner image"
-        class="radius-[15px]"
+        class="radius-[15px] md:w-full w-10/12 object-cover overflow-hidden"
       />
     </div>
 
     <!-- Main Content -->
     <main class="container bg-white radius-[25px] p-12">
       <!-- Heading -->
-      <h1 class="font-semibold text-[28px] tracking-tighter">Products info</h1>
+      <p
+        class="font-semibold text-[28px] tracking-tighter text-[#1A1A1A] w-fit leading-[100%]"
+      >
+        Products info
+      </p>
 
       <!-- Product List -->
-      <div id="product-list" class="grid grid-cols-3 gap-4 mt-[43px]">
+      <div
+        id="product-list"
+        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-[43px]"
+      >
         <!-- T-Shirt -->
         <div
           class="border-1 radius-[25px] border-[#F5F3EF] shadow-[0_10px_40px_0_#F5F3EF,0_-10px_40px_0_#F5F3EF] overflow-hidden"
         >
+          <!-- Product Image -->
           <div class="relative">
             <img
               src="https://placehold.co/336x306"
               alt="Banner image"
               class="radius-t-[15px] w-full object-cover"
             />
+            <!-- Discount Badge -->
             <span
               class="absolute top-4 -left-3 text-center font-bold -rotate-45 text-[12px] text-white bg-black w-[80px] h-[16px] radius-[50px] transform z-10"
               >10%</span
             >
           </div>
+
+          <!-- Product Name -->
           <div class="p-4">
-            <p
-              class="font-semibold text-[20px] tracking-tighter capitalize w-fit"
-            >
-              t-shirt
-            </p>
+            <div class="flex items-center justify-between">
+              <p
+                class="font-semibold text-[20px] tracking-tighter capitalize w-fit m-0"
+              >
+                t-shirt
+              </p>
+
+              <!-- Product Quantity -->
+              <div
+                class="flex items-center border-1 border-[#A9A9A9] gap-[9px] w-[74px] h-[25px] rounded-full"
+              >
+                <span
+                  class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -left-0.5"
+                  >-</span
+                >
+                <span class="font-semibold text-[12px]">1</span>
+                <span
+                  class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -right-px"
+                  >+</span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
