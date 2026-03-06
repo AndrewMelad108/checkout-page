@@ -92,5 +92,114 @@ function setupLanguageSwitch() {
   });
 }
 
+function decodeArbitraryValue(rawValue) {
+  const escapedUnderscoreToken = "__TW_ESCAPED_UNDERSCORE__";
+
+  return rawValue
+    .replace(/\\_/g, escapedUnderscoreToken)
+    .replace(/_/g, " ")
+    .replace(new RegExp(escapedUnderscoreToken, "g"), "_");
+}
+
+function applyArbitraryClassToElement(element, className) {
+  const spacingMatch = className.match(/^(-)?(m|mx|my|mt|mr|mb|ml)-\[(.+)\]$/);
+  if (spacingMatch) {
+    const isNegative = Boolean(spacingMatch[1]);
+    const spacingType = spacingMatch[2];
+    const spacingRawValue = decodeArbitraryValue(spacingMatch[3]);
+    const spacingValue =
+      isNegative && !spacingRawValue.startsWith("-")
+        ? `-${spacingRawValue}`
+        : spacingRawValue;
+
+    if (spacingType === "m") {
+      element.style.margin = spacingValue;
+    } else if (spacingType === "mx") {
+      element.style.marginInline = spacingValue;
+    } else if (spacingType === "my") {
+      element.style.marginBlock = spacingValue;
+    } else if (spacingType === "mt") {
+      element.style.marginTop = spacingValue;
+    } else if (spacingType === "mr") {
+      element.style.marginRight = spacingValue;
+    } else if (spacingType === "mb") {
+      element.style.marginBottom = spacingValue;
+    } else if (spacingType === "ml") {
+      element.style.marginLeft = spacingValue;
+    }
+
+    return;
+  }
+
+  const gapMatch = className.match(/^(gap|gap-x|gap-y)-\[(.+)\]$/);
+  if (gapMatch) {
+    const gapType = gapMatch[1];
+    const gapValue = decodeArbitraryValue(gapMatch[2]);
+
+    if (gapType === "gap") {
+      element.style.gap = gapValue;
+    } else if (gapType === "gap-x") {
+      element.style.columnGap = gapValue;
+    } else if (gapType === "gap-y") {
+      element.style.rowGap = gapValue;
+    }
+
+    return;
+  }
+
+  const textSizeMatch = className.match(/^text-\[(.+)\]$/);
+  if (textSizeMatch) {
+    element.style.fontSize = decodeArbitraryValue(textSizeMatch[1]);
+  }
+}
+
+function applyArbitraryUtilitiesToElement(element) {
+  if (!(element instanceof Element) || !element.classList) {
+    return;
+  }
+
+  for (const className of element.classList) {
+    applyArbitraryClassToElement(element, className);
+  }
+}
+
+function applyArbitraryUtilities(rootNode = document) {
+  if (rootNode instanceof Element) {
+    applyArbitraryUtilitiesToElement(rootNode);
+    rootNode.querySelectorAll("[class]").forEach(applyArbitraryUtilitiesToElement);
+    return;
+  }
+
+  document.querySelectorAll("[class]").forEach(applyArbitraryUtilitiesToElement);
+}
+
+function setupArbitraryObserver() {
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes" && mutation.target instanceof Element) {
+        applyArbitraryUtilitiesToElement(mutation.target);
+        continue;
+      }
+
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach((node) => {
+          if (node instanceof Element) {
+            applyArbitraryUtilities(node);
+          }
+        });
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+}
+
 applyLanguage(getInitialLanguage());
 setupLanguageSwitch();
+applyArbitraryUtilities();
+setupArbitraryObserver();
