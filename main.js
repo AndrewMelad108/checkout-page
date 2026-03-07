@@ -199,7 +199,121 @@ function setupArbitraryObserver() {
   });
 }
 
+function clampQuantity(value, min = 1) {
+  if (Number.isNaN(value)) {
+    return min;
+  }
+
+  return Math.max(min, value);
+}
+
+function updateQuantity(control, delta) {
+  const valueElement = control.querySelector("[data-qty-value]");
+  if (!valueElement) {
+    return;
+  }
+
+  const currentValue = Number.parseInt(valueElement.textContent || "1", 10);
+  const nextValue = clampQuantity(currentValue + delta);
+  valueElement.textContent = String(nextValue);
+}
+
+function handleQuantityAction(actionElement) {
+  const control = actionElement.closest("[data-qty]");
+  if (!control) {
+    return;
+  }
+
+  const action = actionElement.getAttribute("data-qty-action");
+  if (action === "increase") {
+    updateQuantity(control, 1);
+    return;
+  }
+
+  if (action === "decrease") {
+    updateQuantity(control, -1);
+  }
+}
+
+function setupQuantityControls() {
+  document.addEventListener("click", (event) => {
+    const actionElement = event.target.closest("[data-qty-action]");
+    if (!actionElement) {
+      return;
+    }
+
+    handleQuantityAction(actionElement);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const actionElement = event.target.closest("[data-qty-action]");
+    if (!actionElement) {
+      return;
+    }
+
+    event.preventDefault();
+    handleQuantityAction(actionElement);
+  });
+}
+
+function setSelectedOption(item) {
+  const group = item.closest("[data-select-group]");
+  if (!group) {
+    return;
+  }
+
+  const items = group.querySelectorAll("[data-select-item]");
+  items.forEach((element) => {
+    element.classList.remove("is-selected");
+    element.setAttribute("aria-pressed", "false");
+  });
+
+  item.classList.add("is-selected");
+  item.setAttribute("aria-pressed", "true");
+}
+
+function setupOptionSelection() {
+  document.querySelectorAll("[data-select-group]").forEach((group) => {
+    const items = Array.from(group.querySelectorAll("[data-select-item]"));
+    if (!items.length) {
+      return;
+    }
+
+    const selected = items.find((item) => item.classList.contains("is-selected"));
+    setSelectedOption(selected || items[0]);
+  });
+
+  document.addEventListener("click", (event) => {
+    const option = event.target.closest("[data-select-item]");
+    if (!option) {
+      return;
+    }
+
+    setSelectedOption(option);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const option = event.target.closest("[data-select-item]");
+    if (!option) {
+      return;
+    }
+
+    event.preventDefault();
+    setSelectedOption(option);
+  });
+}
+
 applyLanguage(getInitialLanguage());
 setupLanguageSwitch();
 applyArbitraryUtilities();
 setupArbitraryObserver();
+setupQuantityControls();
+setupOptionSelection();

@@ -103,14 +103,23 @@
 
               <!-- Product Quantity -->
               <div
+                data-qty
                 class="flex items-center border-1 border-[#A9A9A9] gap-[9px] w-[74px] h-[25px] rounded-full"
               >
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Decrease quantity"
+                  data-qty-action="decrease"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -left-0.5"
                   >-</span
                 >
-                <span class="font-semibold text-[12px]">1</span>
+                <span data-qty-value class="font-semibold text-[12px]">1</span>
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Increase quantity"
+                  data-qty-action="increase"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -right-px"
                   >+</span
                 >
@@ -132,17 +141,17 @@
                 Size
               </p>
               <!-- Product Size Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="size" class="flex items-center gap-4">
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >S</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >M</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >L</span
                 >
               </div>
@@ -156,19 +165,19 @@
                 Color
               </p>
               <!-- Product Color Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="color" class="flex items-center gap-4">
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-black rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-green-500 rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-red-500 rounded-full"></span>
                 </p>
@@ -184,21 +193,21 @@
               </p>
 
               <!-- Product Images Options -->
-              <div class="flex items-center gap-[14px]">
+              <div data-select-group="image" class="flex items-center gap-[14px]">
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 1"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 2"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 3"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
               </div>
             </div>
@@ -302,14 +311,23 @@
 
               <!-- Product Quantity -->
               <div
+                data-qty
                 class="flex items-center border-1 border-[#A9A9A9] gap-[9px] w-[74px] h-[25px] rounded-full"
               >
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Decrease quantity"
+                  data-qty-action="decrease"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -left-0.5"
                   >-</span
                 >
-                <span class="font-semibold text-[12px]">1</span>
+                <span data-qty-value class="font-semibold text-[12px]">1</span>
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Increase quantity"
+                  data-qty-action="increase"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -right-px"
                   >+</span
                 >
@@ -331,17 +349,17 @@
                 Size
               </p>
               <!-- Product Size Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="size" class="flex items-center gap-4">
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >S</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >M</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >L</span
                 >
               </div>
@@ -355,19 +373,19 @@
                 Color
               </p>
               <!-- Product Color Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="color" class="flex items-center gap-4">
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-black rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-green-500 rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-red-500 rounded-full"></span>
                 </p>
@@ -383,21 +401,21 @@
               </p>
 
               <!-- Product Images Options -->
-              <div class="flex items-center gap-[14px]">
+              <div data-select-group="image" class="flex items-center gap-[14px]">
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 1"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 2"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 3"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
               </div>
             </div>
@@ -502,14 +520,23 @@
 
               <!-- Product Quantity -->
               <div
+                data-qty
                 class="flex items-center border-1 border-[#A9A9A9] gap-[9px] w-[74px] h-[25px] rounded-full"
               >
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Decrease quantity"
+                  data-qty-action="decrease"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -left-0.5"
                   >-</span
                 >
-                <span class="font-semibold text-[12px]">1</span>
+                <span data-qty-value class="font-semibold text-[12px]">1</span>
                 <span
+                  role="button"
+                  tabindex="0"
+                  aria-label="Increase quantity"
+                  data-qty-action="increase"
                   class="border border-[#DFDDDD] bg-[#C2A878] text-white w-[25px] h-[25px] flex items-center justify-center rounded-full cursor-pointer relative z-10 -right-px"
                   >+</span
                 >
@@ -531,17 +558,17 @@
                 Size
               </p>
               <!-- Product Size Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="size" class="flex items-center gap-4">
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >S</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >M</span
                 >
                 <span
-                  class="h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item size-option h-[46px] w-[46px] bg-[#F8F6F4] text-black flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                   >L</span
                 >
               </div>
@@ -555,19 +582,19 @@
                 Color
               </p>
               <!-- Product Color Options -->
-              <div class="flex items-center gap-4">
+              <div data-select-group="color" class="flex items-center gap-4">
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-black rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-green-500 rounded-full"></span>
                 </p>
                 <p
-                  class="h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer"
+                  class="option-item color-option h-[46px] w-[46px] border-[#C9C9C9] border flex items-center justify-center rounded-full cursor-pointer" role="button" tabindex="0" data-select-item
                 >
                   <span class="w-8 h-8 bg-red-500 rounded-full"></span>
                 </p>
@@ -583,21 +610,21 @@
               </p>
 
               <!-- Product Images Options -->
-              <div class="flex items-center gap-[14px]">
+              <div data-select-group="image" class="flex items-center gap-[14px]">
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 1"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 2"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
                 <img
                   src="https://placehold.co/92x92"
                   alt="Product Image 3"
-                  class="object-cover cursor-pointer rounded-[15px] shadow-\[0_10px_40px_0_\#C2A87833\]"
+                  class="option-item image-option object-cover cursor-pointer rounded-[15px] shadow-[0_10px_40px_0_#C2A87833]" role="button" tabindex="0" data-select-item
                 />
               </div>
             </div>
